@@ -12,12 +12,12 @@ class App(Tk):
         self.theCanvas = Canvas(self, width=650,height = 600, bg="#330000")
         self.theCanvas.grid(row=1, column=0, rowspan=6)
     
-        self.theCanvas.bind("<Key>",self.keypressed)
+        self.bind("<Key>",self.keypressed)
 
 
     def keypressed(self,e):
-        print("!")
-        print("Key ", repr(e.char), "was pressed")
+        self.theCanvas.delete(ALL)
+        self.theCanvas.create_text(300,300,text="Key " + repr(e.char) + " was pressed", fill="#FFFFFF")
         
         
 
